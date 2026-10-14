@@ -1,0 +1,17 @@
+[runtime]
+type = "docker"  # or "kubernetes"
+execd_image = "opensandbox/execd:latest"
+
+# Secure container runtime configuration
+# When enabled, ALL sandboxes on this server use the specified runtime
+[secure_runtime]
+# Runtime type: "", "gvisor", "kata", "firecracker"
+type = ""
+
+# Docker mode: OCI runtime name (e.g., "runsc" for gVisor, "kata-runtime" for Kata)
+# Required when runtime.type = "docker" and type is not empty
+docker_runtime = "runsc"
+
+# Kubernetes mode: RuntimeClass name (e.g., "gvisor", "kata-qemu", "kata-fc")
+# Required when runtime.type = "kubernetes" and type is not empty
+k8s_runtime_class = "gvisor"
